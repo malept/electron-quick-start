@@ -4,6 +4,7 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
+    "package": "electron-packager .",
     "start": "electron ."
   },
   "repository": "https://github.com/electron/electron-quick-start",
@@ -17,6 +18,10 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "~1.6.2",
+    "electron-packager": "^9.0.1"
+  },
+  "dependencies": {
+    "fs-extra": "^4.0.2"
   }
 }
