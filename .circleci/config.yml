@@ -32,7 +32,3 @@ workflows:
     jobs:
       - build-linux
       - build-mac
-    filters:
-      branches:
-        only:
-          - master
