@@ -13,6 +13,7 @@ steps-build: &steps-build
         paths:
           - node_modules
         key: v1-dependencies-{{ arch }}-{{ checksum "package-lock.json" }}
+    - run: mkdir /root/snap
     - run: npm run snap
     - store_artifacts:
         path: /root/snap
