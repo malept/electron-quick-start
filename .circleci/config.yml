@@ -1,0 +1,38 @@
+step-restore-cache: &step-restore-cache
+  restore_cache:
+    keys:
+      - v1-dependencies-{{ arch }}-{{ checksum "package-lock.json" }}
+      - v1-dependencies-{{ arch }}
+
+steps-build: &steps-build
+  steps:
+    - checkout
+    - *step-restore-cache
+    - run: npm install
+    - save_cache:
+        paths:
+          - node_modules
+        key: v1-dependencies-{{ arch }}-{{ checksum "package-lock.json" }}
+    - run: npm run snap
+
+
+version: 2
+jobs:
+  build-linux:
+    docker:
+      - image: malept/electron-forge-container:latest
+    <<: *steps-build
+  # build-mac:
+  #   macos:
+  #     xcode: "10.2.0"
+  #   <<: *steps-build
+workflows:
+  version: 2
+  build-app:
+    jobs:
+      - build-linux
+      - build-mac
+    filters:
+      branches:
+        only:
+          - master
