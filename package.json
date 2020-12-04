@@ -1,9 +1,10 @@
 {
-  "name": "electron-quick-start",
+  "name": "forge-bug-2065",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
+    "package:macos": "DEBUG=\"electron-packager,electron-osx-sign*\" node --unhandled-rejections=strict packager.js",
     "start": "electron ."
   },
   "repository": "https://github.com/electron/electron-quick-start",
@@ -17,6 +18,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^11.0.3"
+    "electron": "^11.0.3",
+    "electron-packager": "^15.1.0"
   }
 }
