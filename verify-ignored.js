@@ -16,7 +16,7 @@ function generateAppDir() {
 const appDir = generateAppDir()
 const root = path.join(appDir, 'test')
 if (fs.existsSync()) {
-  console.error('ERROR: Root test/ folder should not exist': root)
+  console.error('ERROR: Root test/ folder should not exist', root)
   process.exit(1)
 }
 
