@@ -4,7 +4,9 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "package": "electron-packager . --overwrite --out out --ignore ^/test",
+    "start": "electron .",
+    "test": "npm run package && node verify-ignored.js"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +19,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^11.1.1"
+    "electron": "^11.1.1",
+    "electron-packager": "^15.2.0"
   }
 }
